@@ -1,0 +1,110 @@
+.user-feedback-component {
+  background: var(--surface-color);
+  padding: 16px 16px 24px;
+  width: 100%;
+  max-width: 343px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  & &__icon-container {
+    --icon-container-dimension: 40px;
+    width: var(--icon-container-dimension);
+    height: var(--icon-container-dimension);
+    margin-bottom: 12px;
+  }
+
+  & &__title {
+    max-width: 200px;
+    font-size: 18px;
+    line-height: 1em;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  & &__rates-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & &__single-rate-tile {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1em;
+    text-align: center;
+    width: 100%;
+    max-width: 56px;
+    padding: 15px 0;
+    border: 1px solid var(--background-color-disabled);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      border-color: var(--color-content-300);
+    }
+
+    &[data-selected] {
+      background: linear-gradient(
+          0deg,
+          rgba(209, 47, 38, 0.08),
+          rgba(209, 47, 38, 0.08)
+        ),
+        var(--surface-color);
+
+      border-color: var(--primary-color);
+    }
+  }
+
+  & &__labels-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & &__single-label {
+    max-width: 90px;
+    color: var(--color-content-200);
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: -0.01em;
+
+    &--to-right {
+      text-align: right;
+    }
+  }
+
+  @media (min-width: 600px) {
+    max-width: 496px;
+    border-radius: 24px;
+    padding: 32px;
+    gap: 32px;
+
+    & &__icon-container {
+      --icon-container-dimension: 48px;
+      margin-bottom: 16px;
+    }
+
+    & &__title {
+      max-width: 265px;
+      font-size: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    & &__single-rate-tile {
+      font-size: 24px;
+      width: 100%;
+      max-width: 80px;
+      padding: 20px 0;
+      border-radius: 16px;
+      margin-bottom: 16px;
+    }
+
+    & &__single-label {
+      font-size: 16px;
+      line-height: 19px;
+      letter-spacing: -0.01em;
+    }
+  }
+}
