@@ -51,4 +51,8 @@ export const UserFeedbackComponent = () => {
       confirmButton.setAttribute("disabled", true);
     }
   }
+
+  confirmButton.addEventListener("click", () => {
+    confirmButton.setAttribute("data-loading", 1);
+  });
 };

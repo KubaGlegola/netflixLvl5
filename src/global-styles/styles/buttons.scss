@@ -1,6 +1,5 @@
 button {
   --btn-height: 48px;
-
   border: none;
   border-radius: 60px;
   width: 100%;
@@ -9,11 +8,14 @@ button {
   align-items: center;
   justify-content: center;
   transition: 0.2s;
+  font-size: 14px;
+  line-height: 1em;
+  letter-spacing: -0.01em;
+  font-weight: 700;
 
   &.btn-primary {
     background-color: var(--primary-color);
     color: var(--color-white-100);
-    font-weight: 700;
 
     &[disabled] {
       background-color: var(--background-color-disabled);
@@ -55,7 +57,6 @@ button {
     background-color: var(--background-color);
     color: var(--on-background-color-light);
     border: 1px solid var(--border-color);
-    font-weight: 700;
 
     &:hover {
       cursor: pointer;
@@ -65,5 +66,7 @@ button {
 
   @media (min-width: 600px) {
     --btn-height: 56px;
+    font-size: 16px;
+    letter-spacing: -0.02em;
   }
 }

@@ -1,10 +1,24 @@
 import Swal from "sweetalert2";
 
 export const UserFeedbackModal = () => {
+  let userFeedbackModalClosedTimestamp = localStorage.getItem(
+    "userFeedbackModalClosedTimestamp"
+  );
+
+  if (userFeedbackModalClosedTimestamp) {
+    const threeDaysInMilliseconds = 2 * 60 * 60 * 3600;
+    const currentDate = new Date();
+
+    const threeDaysAgo = currentDate.getTime() - threeDaysInMilliseconds;
+
+    if (userFeedbackModalClosedTimestamp >= threeDaysAgo) {
+      return;
+    }
+  }
+
   Swal.fire({
     template: "#user-feedback-modal",
     showConfirmButton: false,
-    width: "492px",
     padding: 0,
     customClass: {
       container: "user-feedback-modal",
@@ -14,5 +28,8 @@ export const UserFeedbackModal = () => {
     showCloseButton: true,
     allowEnterKey: false,
     closeButtonHtml: '<img src="/assets/icons/close-icon.svg" alt="X" />',
+    didClose: () => {
+      localStorage.setItem("userFeedbackModalClosedTimestamp", Date.now());
+    },
   });
 };
